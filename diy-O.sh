@@ -5,6 +5,8 @@ CURRENT_DIR=$(cd $(dirname $0); pwd)
 num=$(find $CURRENT_DIR -name gradlew  | awk -F"/" '{print NF-1}')
 DIR=$(find $CURRENT_DIR -name gradlew  | cut -d \/ -f$num)
 cd $DIR
+#xwalk修复
+sed -i 's/download.01.org\/crosswalk\/releases\/crosswalk\/android\/maven2/github.com\/lm317379829\/TVBoxDIY\/blob\/main/g' $CURRENT_DIR/$DIR/build.gradle
 #名称修改
 sed -i 's/TVBox/极影视/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
 #背景修改
